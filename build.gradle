@@ -8,13 +8,13 @@ version '1.0-SNAPSHOT'
 
 allure {
     report { //секция репорта
-        version.set("2.16.1") // https://github.com/allure-framework/allure2
+        version.set("2.22.0")
     }
     adapter { // отвечает за появление папочки build/allure-results
         aspectjWeaver.set(true) //обработка аннотации @Step
         frameworks {
             junit5 { //название фреймворка
-                adapterVersion.set("2.16.1") //версия интеграции фреймворка и Allure
+                adapterVersion.set("2.22.0") //версия интеграции фреймворка и Allure
             }
         }
     }
@@ -26,12 +26,11 @@ repositories {
 
 dependencies {
     testImplementation(
-            'org.junit.jupiter:junit-jupiter-api:5.9.0',
+            'org.junit.jupiter:junit-jupiter-api:5.9.2',
             'com.codeborne:selenide:6.12.4',
-            'io.qameta.allure:allure-selenide:2.22.0' //'io.qameta.allure:allure-selenide:2.22.0'
+            'io.qameta.allure:allure-selenide:2.22.0'
     )
-
-    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.9.0')
+    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.9.2')
 }
 
 test {
