@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'io.qameta.allure' version '2.11.2' // https://plugins.gradle.org/plugin/io.qameta.allure
+    id 'io.qameta.allure' version '2.11.2'
 }
 
 group 'org.example'
@@ -11,8 +11,9 @@ repositories {
 }
 
 ext {
-    allureVersion = '2.18.1'
-    junitVersion = '5.9.1'
+    allureVersion = '2.21.0'
+    junitVersion = '5.9.2'
+    selenideVersion = '6.12.4'
 }
 
 tasks.withType(JavaCompile) {
@@ -21,14 +22,10 @@ tasks.withType(JavaCompile) {
 
 dependencies {
 
-    implementation 'com.codeborne:selenide:6.12.4'
-    testImplementation 'org.aspectj:aspectjweaver:1.9.5'
-
-    implementation("io.qameta.allure:allure-junit5:${allureVersion}")
-    implementation("io.qameta.allure:allure-selenide:${allureVersion}")
-    implementation 'org.assertj:assertj-core:3.23.1'
-
-    implementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testImplementation("com.codeborne:selenide:${selenideVersion}")
+    testImplementation("io.qameta.allure:allure-junit5:${allureVersion}")
+    testImplementation("io.qameta.allure:allure-selenide:${allureVersion}")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }
 
