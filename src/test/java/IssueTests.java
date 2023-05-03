@@ -34,7 +34,7 @@ public class IssueTests extends TestBase {
 
     @Test
     @Feature("Annotated Steps")
-    @DisplayName("Проверка имени " + ISSUE_NAME + " и " + ISSUE_NUMBER + " в Issues")
+    @DisplayName("Проверка имени " + ISSUE_NAME + " и номера: " + ISSUE_NUMBER + " в Issues")
     void checkIssueAnnotatedSteps() {
         open();
         mainPageGitHub.searchRepository(REPOSITORY);
@@ -46,7 +46,7 @@ public class IssueTests extends TestBase {
 
     @Test
     @Feature("With Clean")
-    @DisplayName("Проверка имени " + ISSUE_NAME + " и " + ISSUE_NUMBER + " в Issues")
+    @DisplayName("Проверка имени " + ISSUE_NAME + " и номера: " + ISSUE_NUMBER + " в Issues")
     void checkIssueWithClean() {
         $("[name = q]").setValue(REPOSITORY).pressEnter();
         $(".codesearch-results").$(linkText(REPOSITORY)).click();
@@ -56,7 +56,7 @@ public class IssueTests extends TestBase {
 
     @Test
     @Feature("Lambda Steps")
-    @DisplayName("Проверка имени " + ISSUE_NAME + " и " + ISSUE_NUMBER + " в Issues")
+    @DisplayName("Проверка имени " + ISSUE_NAME + " и номера: " + ISSUE_NUMBER + " в Issues")
     void checkIssueLambdaSteps() {
         step("В поисковую строку вводим " + REPOSITORY + " и нажимаем Enter", () ->
                 $("[name = q]").setValue(REPOSITORY).pressEnter()
@@ -67,7 +67,7 @@ public class IssueTests extends TestBase {
         step("Нажимаем на вкладку Issues", () ->
                 $("#issues-tab").click()
         );
-        step("Проверяем имя " + ISSUE_NAME + " и " + ISSUE_NUMBER, () ->
+        step("Проверяем имя " + ISSUE_NAME + " и номера: " + ISSUE_NUMBER, () ->
                 $(String.format("#issue_%s_link", ISSUE_NUMBER)).shouldHave(text(ISSUE_NAME))
         );
     }
