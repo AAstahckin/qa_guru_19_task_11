@@ -9,6 +9,7 @@ public class TestBase {
     static void beforeAll() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         Configuration.browserSize = "1920x1080";
+        Configuration.baseUrl = "https://github.com";
     }
 
 }
