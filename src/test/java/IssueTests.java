@@ -27,16 +27,11 @@ public class IssueTests extends TestBase {
     private static final String ISSUE_NUMBER = "2";
     private static final String ISSUE_NAME = "training project of the coolest course";
 
-    @BeforeEach
-    public void beforeEach() {
-        open("");
-    }
-
     @Test
     @Feature("Annotated Steps")
     @DisplayName("Проверка имени " + ISSUE_NAME + " и номера: " + ISSUE_NUMBER + " в Issues")
     void checkIssueAnnotatedSteps() {
-        open();
+        open("");
         mainPageGitHub.searchRepository(REPOSITORY);
         listResultSearchPage.selectRepository(REPOSITORY);
         repositoryPage
@@ -48,6 +43,7 @@ public class IssueTests extends TestBase {
     @Feature("With Clean")
     @DisplayName("Проверка имени " + ISSUE_NAME + " и номера: " + ISSUE_NUMBER + " в Issues")
     void checkIssueWithClean() {
+        open("");
         $("[name = q]").setValue(REPOSITORY).pressEnter();
         $(".codesearch-results").$(linkText(REPOSITORY)).click();
         $("#issues-tab").click();
@@ -58,6 +54,7 @@ public class IssueTests extends TestBase {
     @Feature("Lambda Steps")
     @DisplayName("Проверка имени " + ISSUE_NAME + " и номера: " + ISSUE_NUMBER + " в Issues")
     void checkIssueLambdaSteps() {
+        open("");
         step("В поисковую строку вводим " + REPOSITORY + " и нажимаем Enter", () ->
                 $("[name = q]").setValue(REPOSITORY).pressEnter()
         );
